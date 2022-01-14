@@ -2,6 +2,9 @@ import React from "react";
 import MenuItem from "../menuItem/menuItem.components";
 import "./directory.styles.scss";
 
+
+//Directory is a component that displays all the menuItem and contains their hard coded data and passes them. 
+//On the homepage
 class Directory extends React.Component {
   constructor() {
     super();
