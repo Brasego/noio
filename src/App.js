@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import MenuItem from "./components/menuItem/menuItem.components";
 import HomePage from "./pages/homepage/homepage.component.jsx";
+import ShopPage from "./pages/shop/shop.component";
 
 const HatsPage = () => (
   <div>
@@ -35,9 +35,7 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/topics" element={<TopicList />} />
-        <Route path="/topics/:topicId" element={<TopicDetail />} />
-        <Route path="/hats" element={<HatsPage />} />
+        <Route exact path="/shop" element={<ShopPage />} />
       </Routes>
     </div>
   );
