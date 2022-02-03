@@ -8,7 +8,7 @@ const PreviewCollection = ({ title, items }) => (
     <h1 className="title">{title.toUpperCase()}</h1>
     <div className="preview">
       {
-        //I love these spreadings <3 (...otherDataNotUsefulInThisComponentButWe'reGonnaUseThemInHisChild )
+        //I love these spreadings <3 ({...otherDataNotUsefulInThisComponentButWe'reGonnaUseThemInHisChild} )
         //Would've knew how to use them before
         items
           .filter((item, idx) => idx < 4)
