@@ -14,6 +14,36 @@ const config = {
   appId: "1:721514152392:web:6dc34529bc37836bfbc0fd",
 };
 
+//Function that allows us to take use's auth object and store it inside of our firestore database 
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if(!userAuth) return;
+  
+  //Getting user id from auth and querying firestore for a reference in firestore
+  const userRef = firestore.doc(`users/${userAuth.uid}`)
+  const snapShot =  await userRef.get()
+
+  //Check if a document corresponding to a profile exists in firestore's user collection 
+  if(!snapShot.exists) {
+    //Create user's profile
+      const { displayName, email} = userAuth
+      const createdAt = new Date()
+
+      try {
+        await userRef.set({
+          displayName,
+          email,
+          createdAt,
+          ...additionalData
+        })
+      } catch (error) {
+        console.log("error creatinf user", error.message);
+      }
+  }
+
+  return userRef
+}
+
+
 firebase.initializeApp(config);
 
 //Exporting our auth/firestore to use it anywhere we need in our application
@@ -27,7 +57,6 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 //Exporting firebase's method to connect via google as signInWithGoogle
 export const signInWithGoogle = () => {
-  console.log(provider);
   auth.signInWithPopup(provider);
 };
 //in case we want the whole library
