@@ -33,17 +33,19 @@ class App extends React.Component {
 
         //Using .data() on a snapShot object will give us its data
         userRef.onSnapshot((snapShot) => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data(),
+          this.setState(
+            {
+              currentUser: {
+                id: snapShot.id,
+                ...snapShot.data(),
+              },
             },
-          });
+            () => {
+              console.log(this.state);
+            }
+          );
         });
       }
-      this.setState({ currentUser: userAuth }, () => {
-        console.log(this.state);
-      });
     });
   }
 
