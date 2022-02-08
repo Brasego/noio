@@ -1,13 +1,14 @@
 import React from "react";
 import CustomButton from "../custom-button/custom-button.component";
 import FormInput from "../form-input/form-input.component";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./signin.styles.scss";
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: "",
       password: "",
@@ -20,8 +21,20 @@ class SignIn extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (e) => {
-    console.log("Boorgir", e, this.state.email, this.state.password);
+  handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      //clears states
+      this.setState({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
@@ -31,22 +44,27 @@ class SignIn extends React.Component {
         <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
           <FormInput
-            onChange={this.handleChange}
             name="email"
+            type="email"
+            onChange={this.handleChange}
             value={this.state.email}
             label="Email"
             required
           />
           <FormInput
-            onChange={this.handleChange}
             name="password"
             value={this.state.password}
-            label="Password"
             type="password"
+            onChange={this.handleChange}
+            label="Password"
             required
           />
         </form>
-        <CustomButton minWidth={"380px"} type="submit">
+        <CustomButton
+          minWidth={"380px"}
+          type="submit"
+          onClick={this.handleSubmit}
+        >
           SIGN IN
         </CustomButton>
         <h2>OR</h2>

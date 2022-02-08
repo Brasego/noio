@@ -33,7 +33,6 @@ class SignUp extends React.Component {
         email,
         password
       );
-
       await createUserProfileDocument(user, { displayName });
 
       //Clears form
@@ -44,6 +43,7 @@ class SignUp extends React.Component {
         confirmPassword: "",
       });
     } catch (error) {
+      alert("There is an error in one of your fields");
       console.log(error);
     }
   };

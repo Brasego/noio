@@ -16,32 +16,31 @@ const config = {
 
 //Function that allows us to take use's auth object and store it inside of our firestore database 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
-  if(!userAuth) return;
-  
+  if (!userAuth) return;
+
   //Getting user id from auth and querying firestore for a reference in firestore
-  const userRef = firestore.doc(`users/${userAuth.uid}`)
-  const snapShot =  await userRef.get()
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const snapShot = await userRef.get();
 
-  //Check if a document corresponding to a profile exists in firestore's user collection 
-  if(!snapShot.exists) {
+  //Check if a document corresponding to a profile exists in firestore's user collection
+  if (!snapShot.exists) {
     //Create user's profile
-      const { displayName, email} = userAuth
-      const createdAt = new Date()
-
-      try {
-        await userRef.set({
-          displayName,
-          email,
-          createdAt,
-          ...additionalData
-        })
-      } catch (error) {
-        console.log("error creatinf user", error.message);
-      }
+    let { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (error) {
+      console.log("error creating user", error.message);
+    }
   }
 
-  return userRef
-}
+  return userRef;
+};
 
 
 firebase.initializeApp(config);
