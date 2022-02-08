@@ -6,12 +6,13 @@ import "firebase/compat/auth";
 //It's usually a good practice NOT TO store your API key on git for security
 //But GitGuardians acknowledged that this is not an issue for the firebase case.
 const config = {
-  apiKey: "AIzaSyDbrMH2LE0x49Kx2Y8Vzk-PvWlg2fhH8KY",
-  authDomain: "crwn-db-befdc.firebaseapp.com",
-  projectId: "crwn-db-befdc",
-  storageBucket: "crwn-db-befdc.appspot.com",
-  messagingSenderId: "721514152392",
-  appId: "1:721514152392:web:6dc34529bc37836bfbc0fd",
+  apiKey: "AIzaSyDblkHVhbyJzp4I5dl0KC1NxgW8M2AR5YE",
+  authDomain: "noio-db.firebaseapp.com",
+  projectId: "noio-db",
+  storageBucket: "noio-db.appspot.com",
+  messagingSenderId: "562836749073",
+  appId: "1:562836749073:web:aadca87b886bb3cd42aab0",
+  measurementId: "G-7L04QVZQW5",
 };
 
 //Function that allows us to take use's auth object and store it inside of our firestore database 
