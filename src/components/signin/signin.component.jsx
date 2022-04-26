@@ -17,7 +17,7 @@ class SignIn extends React.Component {
 
   handleChange = (e) => {
     const { name, value } = e.target;
-
+    
     this.setState({ [name]: value });
   };
 
@@ -25,15 +25,17 @@ class SignIn extends React.Component {
     e.preventDefault();
 
     const { email, password } = this.state;
+    
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      const signin = await auth.signInWithEmailAndPassword(email, password);
+
       //clears states
       this.setState({
         email: "",
         password: "",
       });
     } catch (error) {
-      console.log(error);
+      console.log("Error: ",error);
     }
   };
 

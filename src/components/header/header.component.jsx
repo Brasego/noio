@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { ReactComponent as Logo } from "../../assets/crown.svg";
+import Logo from "../../assets/NOIO_LOGO.png";
 import { auth } from "../../firebase/firebase.utils";
 import "./header.styles.scss";
 
 const Header = ({ currentUser }) => (
   <div className="header">
     <Link className="logo-container" to="/">
-      <Logo className="logo"></Logo>
+        <img alt="noio-logo" className="logo" src={Logo}></img>
     </Link>
     <div className="options">
       <Link className="option" to="/shop">

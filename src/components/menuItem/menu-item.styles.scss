@@ -32,6 +32,11 @@
     height: 380px;
   }
 
+  &.WIP:hover {
+    cursor: not-allowed;
+    filter: sepia()
+  }
+
   .background-image {
     width: 100%;
     height: 100%;
