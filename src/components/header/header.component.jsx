@@ -12,9 +12,6 @@ const Header = ({ currentUser }) => (
         <img alt="noio-logo" className="logo" src={Logo}></img>
     </Link>
     <div className="options">
-      <Link className="option" to="/shop">
-        SHOP
-      </Link>
       <Link className="option" to="/contact">
         CONTACT
       </Link>

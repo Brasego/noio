@@ -1,4 +1,5 @@
 import React from "react";
+import BlogDisplay from "../../components/blog/blog-display.component";
 
 class BlogPage extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class BlogPage extends React.Component {
 
     return (
       <h1 className="blog-page">
-        This is the blog page
+        <BlogDisplay/>
       </h1>
     );
   }
