@@ -7,10 +7,10 @@ class BlogPage extends React.Component {
   }
 
   render() {
-    const collections = this.state;
 
     return (
       <h1 className="blog-page">
+        
         <BlogDisplay/>
       </h1>
     );
