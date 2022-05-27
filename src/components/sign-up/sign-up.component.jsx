@@ -34,7 +34,6 @@ class SignUp extends React.Component {
         password
       );
       await createUserProfileDocument(user, { displayName });
-
       //Clears form
       this.setState({
         displayName: "",
@@ -44,7 +43,7 @@ class SignUp extends React.Component {
       });
     } catch (error) {
       alert("There is an error in one of your fields");
-      console.log(error);
+      console.log(error.code, error.message);
     }
   };
 
@@ -57,7 +56,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="sign-up">
-        <h2 className="title">I do not have an account</h2>
+        <h1 className="title">I do not have an account</h1>
         <span>Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
           <FormInput
@@ -92,7 +91,7 @@ class SignUp extends React.Component {
             label="Confirm Password"
             required
           />
-          <CustomButton type="submit">Sign Up</CustomButton>
+          <CustomButton type="submit" minWidth={'250px'}>Sign Up</CustomButton>
         </form>
       </div>
     );
