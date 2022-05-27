@@ -8,7 +8,7 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, isUp }) => {
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => isUp ? navigate(`/${linkUrl}`): null} className={`${size} ${isUp ? "" : "WIP"} menu-item`}>
+    <div onClick={() => isUp ? navigate(`/${linkUrl}`): null} className={`${size ? size : ''} ${isUp ? "" : "WIP"} menu-item`}>
       <div
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
@@ -16,7 +16,7 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, isUp }) => {
       <div className="content">
         <h1 className="title">{title.toUpperCase()}</h1>
       { isUp? (<span className="subtitle">CLICK ME</span>):
-      <span className="subtitle">WORK IN PROGRESS</span>
+      <span className="subtitle">COMING</span>
       }
       </div>
     </div>

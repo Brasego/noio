@@ -1,4 +1,7 @@
 .menu-item {
+  @media screen and (max-width: 800px){
+    width: 100%;
+  }
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
@@ -30,6 +33,9 @@
 
   &.large {
     height: 380px;
+    @media screen and (max-width: 800px){
+      height: 240px;
+    }
   }
 
   &.WIP:hover {
