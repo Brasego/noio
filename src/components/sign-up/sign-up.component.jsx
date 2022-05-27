@@ -34,7 +34,6 @@ class SignUp extends React.Component {
         password
       );
       await createUserProfileDocument(user, { displayName });
-
       //Clears form
       this.setState({
         displayName: "",
@@ -44,7 +43,7 @@ class SignUp extends React.Component {
       });
     } catch (error) {
       alert("There is an error in one of your fields");
-      console.log(error);
+      console.log(error.code, error.message);
     }
   };
 

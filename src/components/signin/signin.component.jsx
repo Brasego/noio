@@ -1,7 +1,7 @@
 import React from "react";
 import CustomButton from "../custom-button/custom-button.component";
 import FormInput from "../form-input/form-input.component";
-import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+import { signInWithGoogle, signInWithCredentials } from "../../firebase/firebase.utils";
 
 import "./signin.styles.scss";
 
@@ -27,13 +27,7 @@ class SignIn extends React.Component {
     const { email, password } = this.state;
     
     try {
-      await auth.signInWithEmailAndPassword(email, password);
-
-      //clears states
-      this.setState({
-        email: "",
-        password: "",
-      });
+      await signInWithCredentials(email, password);
     } catch (error) {
       console.log("Error: ",error);
     }
