@@ -15,7 +15,7 @@ const config = {
   measurementId: "G-7L04QVZQW5",
 };
 
-//Function that allows us to take use's auth object and store it inside of our firestore database 
+//Function that allows us to take use's auth object and store it inside of our firestore database
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
@@ -42,7 +42,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   return userRef;
 };
-
 
 firebase.initializeApp(config);
 

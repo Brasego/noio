@@ -1,8 +1,17 @@
-rules_version = '2';
+function isAdmin() {
+	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin
+}
+
 service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+    match /databases/{database}/documents {
+    //An user is allowed tu read/Write his data
+      match /users/{userId} {
+        allow read, write: if userId == request.auth.uid 
+        || isAdmin();
+      }
+    //An user who wants to create an account has the ability to create a next document
+    match /users {
+      allow create: if true || isAdmin();
     }
   }
 }
