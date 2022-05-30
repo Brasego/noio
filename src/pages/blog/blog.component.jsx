@@ -1,20 +1,16 @@
 import React from "react";
 import BlogDisplay from "../../components/blog/blog-display.component";
+import { useSelector } from "react-redux";
+import { selectIsAdmin } from "../../redux/user/user.selector";
 
-class BlogPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const BlogPage = () => {
+  const isAdmin = useSelector(selectIsAdmin);
 
-  render() {
-
-    return (
-      <h1 className="blog-page">
-        
-        <BlogDisplay/>
-      </h1>
-    );
-  }
-}
+  return (
+    <h1 className="blog-page">
+      <BlogDisplay />
+    </h1>
+  );
+};
 
 export default BlogPage;
