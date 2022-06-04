@@ -6,5 +6,7 @@ export const selectCurrentUser = (state) => {
 export const selectIsAdmin = (state) => {
   if (!state.user.currentUser) return false;
   if (!state.user.currentUser.isAdmin) return false;
-  return state.user.isAdmin ? state.user.isAdmin : false;
+  return state.user.currentUser.isAdmin
+    ? state.user.currentUser.isAdmin
+    : false;
 };

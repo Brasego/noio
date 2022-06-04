@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./form-input.styles.scss";
+import "./text-area-input.scss";
 
-const FormInput = ({
+const TextAreaInput = ({
   className,
   onChange,
   label,
@@ -17,19 +17,20 @@ const FormInput = ({
     otherProps:
   */
   <div className="group">
-    <input
-      className={`form-input ${className}`}
+    <textarea
+      className={`text-area-input ${className}`}
       onChange={onChange}
       name={name}
-      type={type}
       autoComplete={label}
     />
     {label ? (
-      <label className={`${otherProps.value ? "shrink" : ""} form-input-label`}>
+      <label
+        className={`${otherProps.value ? "shrink" : ""} text-area-input-label`}
+      >
         {label}
       </label>
     ) : null}
   </div>
 );
 
-export default FormInput;
+export default TextAreaInput;

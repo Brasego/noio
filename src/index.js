@@ -8,6 +8,11 @@ import store from "./redux/store";
 
 ReactDOM.render(
   <Provider store={store}>
+    {/* Google Materials Icons */}
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <BrowserRouter>
       <App />
     </BrowserRouter>

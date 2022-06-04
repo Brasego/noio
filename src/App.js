@@ -33,16 +33,16 @@ const App = () => {
         profileData = await userProfile.get().then((snapShot) => {
           return snapShot.data();
         });
+        dispatch(setCurrentUser({ id: user.uid, ...profileData }));
       }
-      dispatch(setCurrentUser({ id: user.uid, ...profileData }));
     });
 
     return unsubscribe;
   }, [dispatch]);
 
   return (
-    <div>
-      <Header />
+    <div className="App">
+      <Header currentUser={currentUser} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
