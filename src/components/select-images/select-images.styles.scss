@@ -1,14 +1,13 @@
-$sub-color: grey;
-
 .select-images-container{
   display: grid;
   gap: 10px;
 }
+
 .select-image-label{
     text-align: left;
     grid-row-start: 1;
     align-items: left;
-    color: $sub-color;
+    color: grey;
     font-size: 16px;
     font-weight: normal;
     pointer-events: none;

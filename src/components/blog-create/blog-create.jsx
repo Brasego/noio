@@ -11,6 +11,7 @@ class BlogCreate extends React.Component {
     super();
     this.state = {
       title: "",
+      files: [],
       content: "",
     };
   }

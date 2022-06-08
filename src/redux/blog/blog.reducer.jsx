@@ -1,7 +1,11 @@
 import { BlogActionTypes } from "./blog.types";
 
 const INITIAL_STATE = {
-  currentBlog: null,
+  currentBlog: {
+    title: "",
+    content: "",
+    files: [],
+  },
 };
 
 const BlogReducer = (state = INITIAL_STATE, action) => {

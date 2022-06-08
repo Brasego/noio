@@ -1,7 +1,7 @@
 import React from "react";
-import { CropImages } from "../crop-images/crop-images.component";
 
-import { SelectImages } from "../select-images/select-images";
+import { CropImages } from "../crop-images/crop-images.component";
+import { SelectImages } from "../select-images/select-images.component";
 
 import "./select-crop-images.scss";
 
@@ -16,13 +16,10 @@ export default class SelectCropImages extends React.Component {
 
   //Gets selectImages files and stores it in the state
   onSelect = (files) => {
-    let newFiles = this.state.files;
-
-    files.forEach((file) => {
-      file.URL = URL.createObjectURL(file);
-      newFiles.push(file);
+    console.log(files);
+    this.setState({ files: files }, () => {
+      console.log(this.state);
     });
-    this.setState({ files: newFiles });
   };
 
   onCrop = (croppedImage, idx) => {
