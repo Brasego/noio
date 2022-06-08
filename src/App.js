@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 
-import store from "./redux/store";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { setCurrentUser } from "./redux/user/user.actions";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { selectCurrentUser } from "./redux/user/user.selector";
 
-import Header from "./components/header/header.component";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { setCurrentUser } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selector";
+import store from "./redux/store";
+
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import ShopPage from "./pages/shop/shop.component";
 import BlogPage from "./pages/blog/blog.component";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
+
+import Header from "./components/header/header.component";
 
 import "./App.css";
 

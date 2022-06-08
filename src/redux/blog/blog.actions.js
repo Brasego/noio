@@ -1,6 +1,4 @@
 import { BlogActionTypes } from "./blog.types";
 
-export const setCurrentBlog = (post) => ({
-  type: BlogActionTypes().SET_NEW_FILES,
-  payload: post,
-});
+export const setCurrentBlog = (post) =>
+  createAction(BlogActionTypes.SET_NEW_FILES, post);
