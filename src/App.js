@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+
+import store from "./redux/store";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { useDispatch, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "./redux/user/user.selector";
 
 import Header from "./components/header/header.component";
@@ -41,18 +43,20 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="App">
-      <Header currentUser={currentUser} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route
-          path="/signin"
-          element={currentUser ? <Navigate to="/" /> : <SignInAndSignUp />}
-        />
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Header currentUser={currentUser} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route
+            path="/signin"
+            element={currentUser ? <Navigate to="/" /> : <SignInAndSignUp />}
+          />
+        </Routes>
+      </div>
+    </Provider>
   );
 };
 

@@ -1,0 +1,24 @@
+.img-title-container{
+    display: flex;
+    flex:1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.preview-title {
+    display: flex;
+    font-size: 18px;
+    position: relative;
+    padding: 3px;
+    top: -40px;
+    width: max-content;
+    border: solid rgb(13, 12, 38) 1px;
+    border-radius: 9px;
+    background-color: bisque;
+    opacity: 60%;
+}
+
+.preview-img{
+}

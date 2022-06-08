@@ -13,6 +13,9 @@ ReactDOM.render(
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    {/* CropperJS Library */}
+    <link href="/path/to/cropper.css" rel="stylesheet" />
+    <script src="/path/to/cropper.js" />
     <BrowserRouter>
       <App />
     </BrowserRouter>

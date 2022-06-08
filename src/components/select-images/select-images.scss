@@ -1,0 +1,18 @@
+$sub-color: grey;
+
+.select-images-container{
+  display: grid;
+  gap: 10px;
+}
+.select-image-label{
+    text-align: left;
+    grid-row-start: 1;
+    align-items: left;
+    color: $sub-color;
+    font-size: 16px;
+    font-weight: normal;
+    pointer-events: none;
+}   
+.select-images-input {
+    grid-row-start: 2;
+}

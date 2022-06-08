@@ -10,15 +10,16 @@ const FormInput = ({
   type,
   ...otherProps
 }) => (
-  /*onChange: function to execute when the input is changed (fnct)
+  /*
+    onChange: function to execute when the input is changed (fnct)
     label: label to display (string)
     name: name of the input (string)
     type: type of input (string)
     otherProps:
   */
-  <div className="group">
+  <div className={`group ${className}`}>
     <input
-      className={`form-input ${className}`}
+      className={`form-input`}
       onChange={onChange}
       name={name}
       type={type}

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import BlogCreate from "../blog-create/blog-create";
 
-import AddCircle from "../../utils/icons/addCircle";
+import AddCircle from "../../utils/icons/addCircle/addCircle";
 
 import "./blog-admin.scss";
 
