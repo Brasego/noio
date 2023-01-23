@@ -1,39 +1,30 @@
 import React from "react";
+import { useContext } from "react";
 
 import { CropImages } from "../crop-images/crop-images.component";
 import { SelectImages } from "../select-images/select-images.component";
 
 import "./select-crop-images.scss";
 
-export default class SelectCropImages extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      files: [],
-      croppedFiles: [],
-    };
-  }
+export const SelectCropImages = ({ context }) => {
+  let { files, setFiles, croppedFiles, setCroppedFiles } = useContext(context);
 
   //Gets selectImages files and stores it in the state
-  onSelect = (files) => {
-    console.log(files);
-    this.setState({ files: files }, () => {
-      console.log(this.state);
-    });
+  const onSelect = (newFiles) => {
+    setFiles(newFiles);
   };
 
-  onCrop = (croppedImage, idx) => {
-    this.setState((prevState) => {});
+  const onCrop = (croppedImage, idx) => {
+    const prevFiles = croppedFiles;
+
+    prevFiles[idx] = croppedImage;
+    setCroppedFiles(prevFiles);
   };
 
-  render() {
-    return (
-      <div className="select-crop-images-container">
-        <SelectImages onChange={this.onSelect} />
-        {this.state.files.length ? (
-          <CropImages files={this.state.files} onCrop={this.onCrop} />
-        ) : null}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="select-crop-images-container">
+      <SelectImages onChange={onSelect} />
+      {files.length ? <CropImages files={files} onCrop={onCrop} /> : null}
+    </div>
+  );
+};

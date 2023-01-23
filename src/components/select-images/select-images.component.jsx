@@ -19,7 +19,7 @@ onChange(required): function that returns file's data to parent component
       newFiles.push(file);
     });
     setFiles(newFiles);
-    onChange(files);
+    onChange(newFiles);
   };
 
   return (

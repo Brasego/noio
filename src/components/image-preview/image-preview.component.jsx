@@ -6,9 +6,9 @@ import "cropperjs/dist/cropper.css";
 export const ImagePreview = (props) => {
   const onCrop = (e) => {
     const imageElement = e.srcElement;
-    // console.log(imageElement);
     const cropper = imageElement?.cropper;
     const croppedImage = cropper.getCroppedCanvas();
+
     props.onCrop(croppedImage, props.idx);
   };
 
@@ -24,6 +24,7 @@ export const ImagePreview = (props) => {
         //Cropper Options:
         aspectRatio={props.ratio ? props.ratio : null}
         cropend={(e) => onCrop(e)}
+        viewMode={1}
       />
       {props.title ? (
         <span className="preview-title">{props.title}</span>

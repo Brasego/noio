@@ -1,9 +1,11 @@
-import "./crop-images.styles.scss";
+import './crop-images.styles.scss';
 
-import FormInput from "../form-input/form-input.component";
-import { ImagePreview } from "../image-preview/image-preview.component";
+import FormInput from '../form-input/form-input.component';
+import { ImagePreview } from '../image-preview/image-preview.component';
+import { useEffect } from 'react';
 
 export const CropImages = ({ files, onCrop }) => {
+  useEffect(() => {});
   const rename = (file) => {
     console.log(file);
   };
@@ -27,7 +29,7 @@ export const CropImages = ({ files, onCrop }) => {
                   onChange={() => rename(file)}
                   label={`Renommer Image ${idx + 1}`}
                   name={file.name}
-                  type={"text"}
+                  type={'text'}
                 />
               </div>
             );

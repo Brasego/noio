@@ -1,54 +1,45 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 
 import FormInput from "../form-input/form-input.component";
-import SelectCropImages from "../select-crop-images/select-crop-images";
+import { SelectCropImages } from "../select-crop-images/select-crop-images";
 import TextAreaInput from "../text-area-input/text-area-input";
+
+import { NewPostContext } from "../../contexts/new-post.context";
 
 import "./blog-create.scss";
 
-class BlogCreate extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      title: "",
-      files: [],
-      content: "",
-    };
-  }
+export const BlogCreate = (props) => {
+  const { title, content, files } = useContext(NewPostContext);
 
-  handleChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
 
-    this.setState({ [name]: value });
+    //  [name]: value
   };
 
-  handleSubmit = () => {};
+  const handleSubmit = () => {};
 
-  render() {
-    return this.props.show ? (
-      <div className="blog-create">
-        <h2>Nouveau Post:</h2>
-        <form onSubmit={this.handleSubmit}>
-          <FormInput
-            onChange={this.handleChange}
-            name={"title"}
-            value={this.state.title}
-            label={"Titre"}
-            type={"text"}
-            required
-          />
-          <SelectCropImages />
-          <TextAreaInput
-            onChange={this.handleChange}
-            name={"content"}
-            value={this.state.content}
-            label={"Contenu"}
-            required
-          />
-        </form>
-      </div>
-    ) : null;
-  }
-}
-
-export default BlogCreate;
+  return props.show ? (
+    <div className="blog-create">
+      <h2>Nouveau Post:</h2>
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          onChange={handleChange}
+          name={"title"}
+          value={title}
+          label={"Titre"}
+          type={"text"}
+          required
+        />
+        <SelectCropImages context={NewPostContext} />
+        <TextAreaInput
+          onChange={handleChange}
+          name={"content"}
+          value={content}
+          label={"Contenu"}
+          required
+        />
+      </form>
+    </div>
+  ) : null;
+};
